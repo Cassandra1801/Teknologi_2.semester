@@ -12,7 +12,10 @@ Dette dokument gennemgår samtlige learning goals fra semesterplanen.
 ### Can navigate the terminal: `ls`, `cd`, `whoami`, `pwd`.
 
 ```bash
-# TODO: indsæt dit eget eksempel
+# whoami -> cassandramichaelsen
+ls -> "shows what on my Desktop"
+cd Ideaprojects -> goes to the folder
+pwd -> /Users/cassandramichaelsen/IdeaProjects
 ```
 
 **I can do it!**
@@ -22,7 +25,12 @@ Dette dokument gennemgår samtlige learning goals fra semesterplanen.
 ### Can create, delete files / folders: `mkdir`, `rm`, `cp`, `mv`, `touch`, `nano`.
 
 ```bash
-# TODO
+# mkdir "hi" -> creates folder called "hi"
+touch "hey" - creates empty file called "hey"
+cp "hey" IdeaProjects -> copies "hey" to IdeaProjects
+mv "hey" "heyy" -> renames the file (can also be used for moving the file)
+rm "hey" -> deletes file called "hey"
+
 ```
 
 **I can do it!**
