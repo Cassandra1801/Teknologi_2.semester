@@ -26,11 +26,10 @@ Dette dokument gennemgår samtlige learning goals fra semesterplanen.
 
 ```bash
 # mkdir "hi" -> creates folder called "hi"
-# touch "hey" - creates empty file called "hey"
+# touch "hey" -> creates empty file called "hey"
 # cp "hey" IdeaProjects -> copies "hey" to IdeaProjects
 # mv "hey" "heyy" -> renames the file (can also be used for moving the file)
 # rm "hey" -> deletes file called "hey"
-
 ```
 
 **I can do it!**
@@ -41,8 +40,8 @@ Dette dokument gennemgår samtlige learning goals fra semesterplanen.
 
 ```bash
 # cat "hey" -> shows the whole file
-# wc "hey" -> counts lines, words and tegn
-# uniq "hey" -> removes dublicates
+# wc "hey" -> counts lines, words and characters
+# uniq "hey" -> removes duplicates
 # sort "hey" -> sorts lines
 ```
 
@@ -54,8 +53,10 @@ Dette dokument gennemgår samtlige learning goals fra semesterplanen.
 
 ### Can create a new repository in your preferred Git provider.
 
+I usually create a repo on GitHub, and from there copy the HTTPS URL and clone it to IntelliJ.
+
 ```bash
-# I usually create a repo on GitHub, and from there copy the http code and clone it to IntelliJ
+git clone https://github.com/Cassandra1801/Teknologi_2.semester.git
 ```
 
 **I can do it!**
@@ -65,20 +66,26 @@ Dette dokument gennemgår samtlige learning goals fra semesterplanen.
 ### Can perform basic Git operations: `clone`, `add`, `commit`, `push`, `pull`.
 
 ```bash
-# git clone "url" -> clones repo 
-# git add . -> adds all changed files
-# git add Main.java -> adds one specific file
-# git commit -m "commit-message" -> commits with a message
-# git push -u origin main -> coomits to GitHub
-# git pull -> opdates from remote to local branch
+git clone "url"               # clones repo
+git add .                     # adds all changed files
+git add Main.java             # adds one specific file
+git commit -m "commit-message"  # commits with a message
+git push -u origin main       # pushes to GitHub
+git pull                      # updates from remote to local branch
+```
 
-# Usually it goes like this:
-# - git add .
-# - git commit -m "adds new function"
-# - git push
+Usually it goes like this:
 
-# And on another device
-# - git pull
+```bash
+git add .
+git commit -m "adds new function"
+git push
+```
+
+And on another device:
+
+```bash
+git pull
 ```
 
 **I can do it!**
@@ -87,13 +94,12 @@ Dette dokument gennemgår samtlige learning goals fra semesterplanen.
 
 ### Can create a pull request.
 
-<!--
-  Make branch
-  Do some stuff on that branch
-  commit and push your stuff to GitHub with a message
-  make a pull request on GitHub
-  go over any changes and possible merge conflicts
-  code review with the team and lastly merge to main branch -->
+- Make a branch
+- Do some stuff on that branch
+- Commit and push your stuff to GitHub with a message
+- Make a pull request on GitHub
+- Go over any changes and possible merge conflicts
+- Code review with the team and lastly merge to main branch
 
 **I can do it!**
 
@@ -101,32 +107,28 @@ Dette dokument gennemgår samtlige learning goals fra semesterplanen.
 
 ### Understands different Git workflows such as GitHub Flow.
 
-<!--
-Make a branch out from Main, that you work on.
-When the wokr is finished, you commmit and push to GitHub.
-On GitHub you create a pull request, where merge conflicts may occur and make code reviewwith the team.
-When thats finished, you merge to main and deploy to Azure via GitHub Actions.
--->
+Make a branch out from main, that you work on.
+When the work is finished, you commit and push to GitHub.
+On GitHub you create a pull request, where merge conflicts may occur and you make code review with the team.
+When that's finished, you merge to main and deploy to Azure via GitHub Actions.
 
 ---
 
 ### Can solve a merge conflict.
 
-<!--
-Merge conflict occurs when there is a line in main that is different from the line you are trying to merge.
+A merge conflict occurs when there is a line in main that is different from the line you are trying to merge.
 
 Git shows conflicts like this:
-<<<<<HEAD -> start of own version
-========= -> dividing line
->>>>>main -> the other versions ending
-
--->
 
 ```
-// You solve it by deciding which version to keep - or maybe a combination.
-// Delete the markers and the version you don't need.
-// Save file, git add file and git commmit - and the conflict is solved
+<<<<<<< HEAD          -> start of own version
+=========             -> dividing line
+>>>>>>> main          -> the other version's ending
 ```
+
+You solve it by deciding which version to keep — or maybe a combination.
+Delete the markers and the version you don't need.
+Save the file, `git add` the file and `git commit` — and the conflict is solved.
 
 **I can do it!**
 
@@ -136,23 +138,22 @@ Git shows conflicts like this:
 
 ### Can list the main hardware components of a computer, their functions and the Von Neumann architecture.
 
-<!--
-CPU -> Central Processing Unit 
-- Its the CPu that does all the work - the brain.
-- It reads instruction one at a time and executes them quickly
+**CPU – Central Processing Unit**
+- It's the CPU that does all the work — the brain.
+- It reads instructions one at a time and executes them quickly.
 
-RAM -> Random Access Memory
-- Fast and temporary memory
-- Gottra save all the files, cause when the computer turns off, its gone.
+**RAM – Random Access Memory**
+- Fast and temporary memory.
+- You have to save your files, because when the computer turns off, RAM is wiped.
 
-Storage -> HDD/SSD
+**Storage – HDD/SSD**
 - Permanent storage of files.
-- Slower than RAM, but has a bigger capacity
+- Slower than RAM, but has a bigger capacity.
 
-Von Neuman -> Data and instructions in the same memory (RAM)
-Descibes how computers are build - almost every computer today follows this structure.
-In the early days, we reprogrammed by moving wires around. But the Neumann way, you could just load a new program into the memory - thereby came Software.
--->
+**Von Neumann architecture**
+- Data and instructions are in the same memory (RAM).
+- Describes how computers are built — almost every computer today follows this structure.
+- In the early days, we reprogrammed by moving wires around. With the Von Neumann way, you could just load a new program into the memory — thereby came software.
 
 **I can do it!**
 
@@ -160,42 +161,40 @@ In the early days, we reprogrammed by moving wires around. But the Neumann way, 
 
 ### Can explain how computers work, starting from hardware all the way to software.
 
-<!--
-Layer 1: Transistors - the bottom of it all
-- Small electric switch. it can either be on (1) or off (0)
-- The whole computer is build with the whole concept of on and off - therefore binary.
+**Layer 1: Transistors – the bottom of it all**
+- Small electric switch. It can either be on (1) or off (0).
+- The whole computer is built with the concept of on and off — therefore binary.
 
-Layer 2: logic gates - transistors working together
-- logic ports does simple decisions
-  - AND-gate -> output is 1, but only if both outputs are 1
-  - OR-gate -> output is 1 if at least one output is 1
-  - NOT-gate -> tunrs the outputs (0=1,1=0)
+**Layer 2: Logic gates – transistors working together**
+- Logic gates do simple decisions:
+    - AND-gate → output is 1 only if both inputs are 1
+    - OR-gate → output is 1 if at least one input is 1
+    - NOT-gate → turns the input around (0 → 1, 1 → 0)
 
-Layer 3: Machione code - CPU
-- the CPU does a limited set of instructions - binary code
-- the CPU loads, decodes and executes instructions
+**Layer 3: Machine code – CPU**
+- The CPU does a limited set of instructions — binary code.
+- The CPU loads, decodes and executes instructions.
 
-Layer 4: Assembly - machine code with readable names
-- Machine code made readable to humans
+**Layer 4: Assembly – machine code with readable names**
+- Machine code made readable to humans.
 
-Layer 5: high-level language - programming
-- Java, Python, C++, JavaScript and so on
-- All the different languages have different ways of translating to machine code
+**Layer 5: High-level language – programming**
+- Java, Python, C++, JavaScript and so on.
+- All the different languages have different ways of translating to machine code.
 
-Layer 6: Operative system (OS) - The manager
-- Windows, macOS, Linux
-- It's a big program controlling the computer.
-  - Administrate processes
-  - Controls memeory
-  - Handle files
-  - Communicates with the hardware via drivers
-  - Offers a user interface
+**Layer 6: Operating system (OS) – the manager**
+- Windows, macOS, Linux.
+- It's a big program controlling the computer:
+    - Administers processes
+    - Controls memory
+    - Handles files
+    - Communicates with the hardware via drivers
+    - Offers a user interface
 
-  Layer 7: Applications
-  - programs we interact with, such as IntelliJ, Chrome, Spotufy and so on
-  - they don't communicate directly wiht the hardware.
-  - The apps calls for the OS when a file is needed to be read og opening a network connection
--->
+**Layer 7: Applications**
+- Programs we interact with, such as IntelliJ, Chrome, Spotify and so on.
+- They don't communicate directly with the hardware.
+- The apps call for the OS when a file needs to be read or a network connection needs opening.
 
 **I can do it!**
 
@@ -203,17 +202,16 @@ Layer 6: Operative system (OS) - The manager
 
 ### Can talk about processes in operating systems.
 
-<!--
-A program is a passiv file on a disk, where a process is a runnign program in RAM
-PID (Process ID) -> unique number the OS gives every proess, so it can keep a tab on them
-Threads -> a process can have multiple threads going on at the same time and share memory.
-Process states:
-  - READY - ready to run, waiting on the CPU
-  - RUNNING - using the CPU
-  - WAITING - waiting on disk or netword or user-input
-Scheduling -> the OS has a scheduler who decides which process that gets time from the CPU. It goes so fast, it looks like it runs simultanoulsy
-Context switch -> when the CPU switches from one process to another
--->
+A program is a passive file on a disk, where a process is a running program in RAM.
+
+- **PID (Process ID)** → unique number the OS gives every process, so it can keep a tab on them.
+- **Threads** → a process can have multiple threads going on at the same time, sharing memory.
+- **Process states**:
+    - READY – ready to run, waiting on the CPU
+    - RUNNING – using the CPU
+    - WAITING – waiting on disk, network or user-input
+- **Scheduling** → the OS has a scheduler that decides which process gets time from the CPU. It goes so fast it looks like everything runs simultaneously.
+- **Context switch** → when the CPU switches from one process to another.
 
 ---
 
@@ -221,20 +219,14 @@ Context switch -> when the CPU switches from one process to another
 
 ### Can talk about different number representations: Binary, Hexadecimal, Decimal.
 
-<!--
-Binary code:
-  - only 0 and 1
-Hexadecimal:
-  - 0-9 and A-F
-Decimal:
-  - 0-9
-  - What we use in our every day life
+- **Binary**: only 0 and 1
+- **Hexadecimal**: 0–9 and A–F
+- **Decimal**: 0–9, what we use in our every day life
 
-Example - the numberer 255
-  - Decimal - 255
-  - Binary - 1111 1111
-  - Hex - FF
--->
+**Example — the number 255:**
+- Decimal: `255`
+- Binary: `1111 1111`
+- Hex: `FF`
 
 **I can do it!**
 
@@ -242,20 +234,20 @@ Example - the numberer 255
 
 ### Can bring up real-world use cases for different number representations.
 
-<!--
-Binary:
-  - Bit-flags (Linux rwx)
-  - low-level network protocol
-  - Image format
-Hex:
-  - colours in CSS
-  - MAC adresses
-  - memeory adresses
-Decimal:
-  - amounts
-  - price
-  - everything we have to read directly
--->
+**Binary:**
+- Bit-flags (Linux `rwx`)
+- Low-level network protocols
+- Image formats
+
+**Hex:**
+- Colours in CSS
+- MAC addresses
+- Memory addresses
+
+**Decimal:**
+- Amounts
+- Prices
+- Everything we have to read directly
 
 **I can do it!**
 
@@ -263,21 +255,21 @@ Decimal:
 
 ### Can explain different charsets like ASCII and Unicode and how they differ.
 
-<!--
-ASCII:
-  - Only have english letters, numbers and ordinary characters
-  - cant handle æ,ø and å or other languages characters
-  - 7 bits and 128 characters
-Unicode:
-  - internation standard that gives every character a uinique number (æ=U+00E6)
-  - Covers all languages, emojis, math symbols and so on
-UFT-8:
-  - the most used encoding by Unicode
-  - Variable length (1-4 bytes) and backward compatible with ASCII
-  - English characters still only take up 1 byte, while æ takes up 2 bytes
-  
-Sometimes the database or file doesnt use UFT-8, so æ,ø and å is shown as a ? or a weird character
--->
+**ASCII:**
+- Only has English letters, numbers and ordinary characters
+- Can't handle æ, ø, å or other languages' characters
+- 7 bits and 128 characters
+
+**Unicode:**
+- International standard that gives every character a unique number (æ = U+00E6)
+- Covers all languages, emojis, math symbols and so on
+
+**UTF-8:**
+- The most used encoding of Unicode
+- Variable length (1–4 bytes) and backward compatible with ASCII
+- English characters still only take up 1 byte, while æ takes up 2 bytes
+
+Sometimes the database or file doesn't use UTF-8, so æ, ø and å are shown as `?` or weird characters.
 
 **I can do it!**
 
@@ -287,21 +279,22 @@ Sometimes the database or file doesnt use UFT-8, so æ,ø and å is shown as a ?
 
 ### Knows about different types of databases and their use cases.
 
-<!--
-Relational (SQL)
-  - structured tabels with realtions, ACID-garanties.
-  - used for most businuess applications
-NoSQL document (fx MongoDB)
-  - Saves JSON-like documents.
-  - Is used when the data doesnt have a fixed structure
-Key-values (fx Redis)
-  - very quick
-  - saves simple pairs
-  - used for caching and sessions
-Graph (fx Neo4j)
-  - Optimized for relationships between things
-  - used for social networks and recommendation
--->
+**Relational (SQL)**
+- Structured tables with relations, ACID guarantees
+- Used for most business applications
+
+**NoSQL document (e.g. MongoDB)**
+- Saves JSON-like documents
+- Used when the data doesn't have a fixed structure
+
+**Key-value (e.g. Redis)**
+- Very quick
+- Saves simple pairs
+- Used for caching and sessions
+
+**Graph (e.g. Neo4j)**
+- Optimized for relationships between things
+- Used for social networks and recommendations
 
 ---
 
@@ -309,16 +302,22 @@ Graph (fx Neo4j)
 
 ```sql
 -- MySQL
-  -- CREATE DATABASE oenskeskyen;
-  -- USE oenskeskyen;
+CREATE DATABASE oenskeskyen;
+USE oenskeskyen;
+```
 
--- Connection thorugh terminal
-  -- mysql -u root -p
+Connection through terminal:
 
---JDBC in Spring Boot
-  -- spring.datasource.url=jdbc:mysql://localhost:3306/oenskeskyen
-  -- spring.datasource.username=root
-  -- spring.datasource.password=password
+```bash
+mysql -u root -p
+```
+
+JDBC in Spring Boot:
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/oenskeskyen
+spring.datasource.username=root
+spring.datasource.password=password
 ```
 
 **I can do it!**
@@ -328,7 +327,7 @@ Graph (fx Neo4j)
 ### Can create DDL statements to create tables.
 
 ```sql
--- CREATE TABLE users (
+CREATE TABLE users (
     id INT PRIMARY KEY,
     username VARCHAR(50),
     email VARCHAR(100)
@@ -342,7 +341,7 @@ Graph (fx Neo4j)
 ### Can create DML (`SELECT`, `INSERT`) statements.
 
 ```sql
--- INSERT INTO users (id, username, email)
+INSERT INTO users (id, username, email)
 VALUES (1, 'cassandra', 'cassandra@example.com');
 
 SELECT * FROM users;
@@ -355,7 +354,7 @@ SELECT * FROM users;
 ### Can use `WHERE` clause to filter results.
 
 ```sql
--- SELECT * FROM users WHERE username = 'cassandra';
+SELECT * FROM users WHERE username = 'cassandra';
 
 SELECT * FROM wishes WHERE price < 500;
 ```
@@ -366,10 +365,10 @@ SELECT * FROM wishes WHERE price < 500;
 
 ### Can define Primary Keys.
 
-```sql
--- A primary key ensures that every row is unique and cant be NULL
+A primary key ensures that every row is unique and can't be NULL.
 
--- CREATE TABLE users (
+```sql
+CREATE TABLE users (
     id INT PRIMARY KEY,
     username VARCHAR(50)
 );
@@ -381,12 +380,9 @@ SELECT * FROM wishes WHERE price < 500;
 
 ### Understands how Foreign Keys work.
 
-<!--
-TODO:
-A FK is a column which points to a PK in another tabel
-Ensures referential integrity.
-You cannot insert an FK value that does not exist in the other table.
--->
+- A FK is a column which points to a PK in another table.
+- Ensures referential integrity.
+- You cannot insert an FK value that does not exist in the other table.
 
 ---
 
@@ -397,12 +393,12 @@ You cannot insert an FK value that does not exist in the other table.
 #### `LIMIT`, `ORDER BY`, `GROUP BY`
 
 ```sql
--- LIMIT, ORDER BY, GROUP BY
--- sqlSELECT * FROM wishes
--- ORDER BY price DESC
--- LIMIT 10;
+SELECT * FROM wishes
+ORDER BY price DESC
+LIMIT 10;
 
--- SELECT user_id, CO
+SELECT user_id, COUNT(*) FROM wishes
+GROUP BY user_id;
 ```
 
 #### Aggregate functions: `COUNT`, `SUM`, `AVG`, `MIN`, `MAX`
@@ -413,16 +409,16 @@ SELECT AVG(price) FROM wishes;
 SELECT MIN(price), MAX(price) FROM wishes;
 ```
 
-#### Pattern matching med `LIKE` og wildcards
+#### Pattern matching with `LIKE` and wildcards
 
 ```sql
--- All uasers whose names starts with 'C'
+-- All users whose names start with 'C'
 SELECT * FROM users WHERE username LIKE 'C%';
 
--- All wishes that contatins 'bog'
+-- All wishes that contain 'bog'
 SELECT * FROM wishes WHERE name LIKE '%bog%';
 
---  Macthes exactly with one character
+-- _ matches exactly one character
 SELECT * FROM users WHERE username LIKE 'C_ssandra';
 ```
 
@@ -451,7 +447,7 @@ SELECT users.username, wishes.name
 FROM users
 LEFT JOIN wishes ON users.id = wishes.user_id;
 
--- RIGHT JOIN: all wishes, alos those without a user
+-- RIGHT JOIN: all wishes, also those without a user
 SELECT users.username, wishes.name
 FROM users
 RIGHT JOIN wishes ON users.id = wishes.user_id;
@@ -464,7 +460,7 @@ RIGHT JOIN wishes ON users.id = wishes.user_id;
 ### Can create DDL statements to create tables with constraints: `PRIMARY KEY`, `AUTO_INCREMENT`, `FOREIGN KEY`, `UNIQUE`, `NOT NULL`.
 
 ```sql
--- CREATE TABLE users (
+CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50) UNIQUE NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL
@@ -486,15 +482,15 @@ CREATE TABLE wishes (
 ### Can create DML (`UPDATE`, `DELETE`) statements.
 
 ```sql
--- UPDATE users
+UPDATE users
 SET email = 'new@example.com'
 WHERE id = 1;
 
 DELETE FROM wishes
 WHERE id = 5;
-
--- Always remember WHERE or else all the rows will be opdated/deleted
 ```
+
+⚠️ Always remember `WHERE` — otherwise all rows will be updated/deleted.
 
 **I can do it!**
 
@@ -505,7 +501,7 @@ WHERE id = 5;
 ### Can write YAML.
 
 ```yaml
-# name: Cassandra
+name: Cassandra
 age: 24
 hobbies:
   - pilates
@@ -522,36 +518,37 @@ adresse:
 
 ### Understands what GitHub Actions are and can break down workflows into runners, jobs, and steps.
 
-<!--
-GitHub Actions
-  - CI/CD-platofrm build within GitHub
-  - Automates tests, builds and deployments
-Workflow
-  - YAML-files placed in .github/workflows/ whioch defines what will happen
-Trigger
-  - what starts the workflow
-  - could be on: puhs, on: pull_request or on: schedule
-Job
-  - a group of steps that runs on one runner
-  - more jobs can run parallel
-Runner
-  - the machine that the workflow runs on
-  - could be ubuntu-latest or windows-latest
-Step
-  - A single command opr action
-  - Checkout code, run tests, deploy
--->
+**GitHub Actions**
+- CI/CD platform built into GitHub
+- Automates tests, builds and deployments
+
+**Workflow**
+- YAML file placed in `.github/workflows/` which defines what will happen
+
+**Trigger**
+- What starts the workflow
+- Could be `on: push`, `on: pull_request` or `on: schedule`
+
+**Job**
+- A group of steps that runs on one runner
+- Multiple jobs can run in parallel
+
+**Runner**
+- The machine that the workflow runs on
+- Could be `ubuntu-latest` or `windows-latest`
+
+**Step**
+- A single command or action
+- Checkout code, run tests, deploy
 
 ---
 
 ### Can give use cases for GitHub Actions.
 
-<!--
- Run automatic test with every push or pull request
- Build and deploy to Azure by merge to main
- Format code automatic
- Send notification to email if theres a mistake
--->
+- Run automatic tests with every push or pull request
+- Build and deploy to Azure when merging to main
+- Format code automatically
+- Send notification to email if there's a mistake
 
 **I can do it!**
 
@@ -561,28 +558,26 @@ Step
 
 ### Understands different cloud service models: IaaS, PaaS, SaaS.
 
-<!--
-IaaS (infrastructure as a Service)
-  - virtuel machines, network, storage
-  - running your own OS, runtime and app
-PaaS (PLatform as a Service)
-  - uploading your app
-  - the provider controls OS and runtime
-SaaS (Software as a Service)
-  - A finished product you can use
--->
+**IaaS (Infrastructure as a Service)**
+- Virtual machines, network, storage
+- Running your own OS, runtime and app
+
+**PaaS (Platform as a Service)**
+- Uploading your app
+- The provider controls OS and runtime
+
+**SaaS (Software as a Service)**
+- A finished product you can use directly
 
 ---
 
 ### Can deploy a web application to Azure App Service.
 
-<!--
-create an App Service in Azure (Java 17)
-Configure runtime (Spring Boot)
-Set app settings (database url, username, password as environment variables)
-Conncet GitHub Actions via Deployment Center
-The app will be available on https://<app-navn>.azurewebsites.net
--->
+- Create an App Service in Azure (Java 17)
+- Configure runtime (Spring Boot)
+- Set app settings (database URL, username, password as environment variables)
+- Connect GitHub Actions via Deployment Center
+- The app will be available on `https://<app-navn>.azurewebsites.net`
 
 **I can do it!**
 
@@ -590,16 +585,14 @@ The app will be available on https://<app-navn>.azurewebsites.net
 
 ### Understands the flow from pushing, GitHub Actions running, building the project and deployment to Azure.
 
-<!--
-push code to main on GitHub
-GitHub Actions is triggered by the push
-Runner checks the code
-Runner builds the project with mvn package
-Output is a .jar-file
-Aritfact uploads
-Deploy-step sends the jar file to Azure via publish profile
-Azure app restarts with the new version
--->
+1. Push code to main on GitHub
+2. GitHub Actions is triggered by the push
+3. Runner checks out the code
+4. Runner builds the project with `mvn package`
+5. Output is a `.jar` file
+6. Artifact is uploaded
+7. Deploy step sends the `.jar` file to Azure via publish profile
+8. Azure App Service restarts with the new version
 
 ---
 
@@ -607,9 +600,9 @@ Azure app restarts with the new version
 
 ### Adding a database to a Spring project.
 
-<!--
-Add dependencies in pom.xml
+Add dependencies in `pom.xml`:
 
+```xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-jdbc</artifactId>
@@ -618,16 +611,18 @@ Add dependencies in pom.xml
     <groupId>com.mysql</groupId>
     <artifactId>mysql-connector-j</artifactId>
 </dependency>
+```
 
-onmfigure application.properties:
+Configure `application.properties`:
 
-propertiesspring.datasource.url=jdbc:mysql://localhost:3306/oenskeskyen
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/oenskeskyen
 spring.datasource.username=root
 spring.datasource.password=password
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+```
 
-Use JdbcTemplate in a repository-class to make queries.
--->
+Use `JdbcTemplate` in a repository class to make queries.
 
 **I can do it!**
 
@@ -635,12 +630,10 @@ Use JdbcTemplate in a repository-class to make queries.
 
 ### Setting up a database in Azure.
 
-<!--
-Create an Azure databse for MySql
-Configure firewall - allow Azure and own IP
-Create database and user via Azure CLI or MySQL Workbench
-Note: Azure typically requires a SSL-connection
--->
+- Create an Azure Database for MySQL
+- Configure firewall – allow Azure and own IP
+- Create database and user via Azure CLI or MySQL Workbench
+- Note: Azure typically requires an SSL connection
 
 **I can do it!**
 
@@ -648,14 +641,14 @@ Note: Azure typically requires a SSL-connection
 
 ### Can set up a database in Azure and connect it to an Azure App Service project with a guide.
 
-<!--
-In App Service -> Configuration -> Application setting: add
-  - Spring_DATASOURCE_URL
-  - SPRING_DATASOURCE_USERNAME
-  - SPRING_DATASOURCE_PASSWORD
-Maybe add ?useSSL=true&requireSSL=true to the connection-string
-Restart App Service and test connection
--->
+In App Service → Configuration → Application settings, add:
+
+- `SPRING_DATASOURCE_URL`
+- `SPRING_DATASOURCE_USERNAME`
+- `SPRING_DATASOURCE_PASSWORD`
+
+Maybe add `?useSSL=true&requireSSL=true` to the connection string.
+Restart App Service and test the connection.
 
 **I can do it!**
 
@@ -665,52 +658,52 @@ Restart App Service and test connection
 
 ### Is able to go through scenarios that can cause concurrency problems in databases.
 
-<!--
 Classic problems when multiple users/processes access the database simultaneously:
-  - lost update -> two users updates the same row. One overwrites the other without knowing it
-  - Dirty read -> User A reads data that user B have changed but haven't committed. if B rollws back, A has read data that technically never existed
-  - Non-repeatable read -> SELECT gives different results within the same transaction because another transaction has changed data in the meantime.
-  - Phantom read -> new rows shows up (or disappers) between two SELECTs in the same transaction
--->
+
+- **Lost update** → two users update the same row. One overwrites the other without knowing it.
+- **Dirty read** → User A reads data that user B has changed but hasn't committed. If B rolls back, A has read data that technically never existed.
+- **Non-repeatable read** → SELECT gives different results within the same transaction because another transaction has changed data in the meantime.
+- **Phantom read** → new rows show up (or disappear) between two SELECTs in the same transaction.
 
 ---
 
 ### Can explain what ACID is and why it solves concurrency problems for databases.
 
-<!--
-TODO:
-- A – Atomicity: All or nothing. A transaction is either fully committed or fully rolled back. No half-updates.
-- C – Consistency: the database goes from one valid state to another. All constraints (FK, NOT NULL, etc.) are respected.
-- I – Isolation: Transactions do not affect each other while they are running. This prevents dirty reads and non-repeatable reads.
-- D – Durability: Once a transaction is committed, it is permanent — even if the server crashes.
+- **A – Atomicity**: All or nothing. A transaction is either fully committed or fully rolled back. No half-updates.
+- **C – Consistency**: The database goes from one valid state to another. All constraints (FK, NOT NULL, etc.) are respected.
+- **I – Isolation**: Transactions do not affect each other while they are running. This prevents dirty reads and non-repeatable reads.
+- **D – Durability**: Once a transaction is committed, it is permanent — even if the server crashes.
 
-How it solves concurrency:
+**How it solves concurrency:**
 Isolation prevents two users from seeing half of each other's work. Atomicity ensures that money doesn't "disappear" between two accounts if a transfer fails halfway through.
--->
 
 ---
 
 ### Is aware of the possibility to define transactions in SQL and JDBC.
 
+**In SQL:**
+
 ```sql
--- START TRANSACTION;
+START TRANSACTION;
 UPDATE accounts SET balance = balance - 100 WHERE id = 1;
 UPDATE accounts SET balance = balance + 100 WHERE id = 2;
 COMMIT;
--- If anything goes worng: ROLLBACK;
+-- If anything goes wrong: ROLLBACK;
 ```
+
+**In JDBC:**
 
 ```java
 Connection conn = dataSource.getConnection();
 try {
     conn.setAutoCommit(false);
 
-    // Træk 100 fra konto 1
+    // Subtract 100 from account 1
     PreparedStatement stmt1 = conn.prepareStatement(
         "UPDATE accounts SET balance = balance - 100 WHERE id = 1");
     stmt1.executeUpdate();
 
-    // Tilføj 100 til konto 2
+    // Add 100 to account 2
     PreparedStatement stmt2 = conn.prepareStatement(
         "UPDATE accounts SET balance = balance + 100 WHERE id = 2");
     stmt2.executeUpdate();
@@ -720,5 +713,7 @@ try {
     conn.rollback();
 }
 ```
+
+In Spring you can use `@Transactional` on a method — then Spring handles commit/rollback automatically.
 
 **I can do it!**
