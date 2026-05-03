@@ -40,7 +40,10 @@ Dette dokument gennemgår samtlige learning goals fra semesterplanen.
 ### Can use the following basic terminal commands: `cat`, `wc`, `uniq`, `sort`.
 
 ```bash
-# TODO
+# cat "hey" -> shows the whole file
+# wc "hey" -> counts lines, words and tegn
+# uniq "hey" -> removes dublicates
+# sort "hey" -> sorts lines
 ```
 
 **I can do it!**
@@ -52,7 +55,7 @@ Dette dokument gennemgår samtlige learning goals fra semesterplanen.
 ### Can create a new repository in your preferred Git provider.
 
 ```bash
-# TODO: hvordan du opretter et nyt repo (fx på GitHub + git init / remote add)
+# I usually create a repo on GitHub, and from there copy the http code and clone it to IntelliJ
 ```
 
 **I can do it!**
@@ -62,7 +65,20 @@ Dette dokument gennemgår samtlige learning goals fra semesterplanen.
 ### Can perform basic Git operations: `clone`, `add`, `commit`, `push`, `pull`.
 
 ```bash
-# TODO
+# git clone "url" -> clones repo 
+# git add . -> adds all changed files
+# git add Main.java -> adds one specific file
+# git commit -m "commit-message" -> commits with a message
+# git push -u origin main -> coomits to GitHub
+# git pull -> opdates from remote to local branch
+
+# Usually it goes like this:
+# - git add .
+# - git commit -m "adds new function"
+# - git push
+
+# And on another device
+# - git pull
 ```
 
 **I can do it!**
@@ -71,7 +87,13 @@ Dette dokument gennemgår samtlige learning goals fra semesterplanen.
 
 ### Can create a pull request.
 
-<!-- TODO: Beskriv workflow – branch, push, åbn PR på GitHub, review, merge -->
+<!--
+  Make branch
+  Do some stuff on that branch
+  commit and push your stuff to GitHub with a message
+  make a pull request on GitHub
+  go over any changes and possible merge conflicts
+  code review with the team and lastly merge to main branch -->
 
 **I can do it!**
 
@@ -80,19 +102,30 @@ Dette dokument gennemgår samtlige learning goals fra semesterplanen.
 ### Understands different Git workflows such as GitHub Flow.
 
 <!--
-TODO: Forklar kort.
-Nøgleord: main altid deployable, feature branches, pull request, review, merge, deploy.
-Evt. sammenlign kort med Git Flow.
+Make a branch out from Main, that you work on.
+When the wokr is finished, you commmit and push to GitHub.
+On GitHub you create a pull request, where merge conflicts may occur and make code reviewwith the team.
+When thats finished, you merge to main and deploy to Azure via GitHub Actions.
 -->
 
 ---
 
 ### Can solve a merge conflict.
 
-<!-- TODO: Vis eksempel på conflict markers (<<<<<<<, =======, >>>>>>>) og hvordan du løser den -->
+<!--
+Merge conflict occurs when there is a line in main that is different from the line you are trying to merge.
+
+Git shows conflicts like this:
+<<<<<HEAD -> start of own version
+========= -> dividing line
+>>>>>main -> the other versions ending
+
+-->
 
 ```
-// TODO: eksempel på conflict markers
+// You solve it by deciding which version to keep - or maybe a combination.
+// Delete the markers and the version you don't need.
+// Save file, git add file and git commmit - and the conflict is solved
 ```
 
 **I can do it!**
@@ -104,10 +137,21 @@ Evt. sammenlign kort med Git Flow.
 ### Can list the main hardware components of a computer, their functions and the Von Neumann architecture.
 
 <!--
-TODO:
-- Komponenter: CPU, RAM, storage, bus, I/O
-- Von Neumann: data og instruktioner i samme hukommelse
-- Fetch-decode-execute cyklus
+CPU -> Central Processing Unit 
+- Its the CPu that does all the work - the brain.
+- It reads instruction one at a time and executes them quickly
+
+RAM -> Random Access Memory
+- Fast and temporary memory
+- Gottra save all the files, cause when the computer turns off, its gone.
+
+Storage -> HDD/SSD
+- Permanent storage of files.
+- Slower than RAM, but has a bigger capacity
+
+Von Neuman -> Data and instructions in the same memory (RAM)
+Descibes how computers are build - almost every computer today follows this structure.
+In the early days, we reprogrammed by moving wires around. But the Neumann way, you could just load a new program into the memory - thereby came Software.
 -->
 
 **I can do it!**
@@ -117,7 +161,40 @@ TODO:
 ### Can explain how computers work, starting from hardware all the way to software.
 
 <!--
-TODO: Lagene – transistorer → logic gates → maskinkode → assembly → højniveau-sprog → OS → applikationer
+Layer 1: Transistors - the bottom of it all
+- Small electric switch. it can either be on (1) or off (0)
+- The whole computer is build with the whole concept of on and off - therefore binary.
+
+Layer 2: logic gates - transistors working together
+- logic ports does simple decisions
+  - AND-gate -> output is 1, but only if both outputs are 1
+  - OR-gate -> output is 1 if at least one output is 1
+  - NOT-gate -> tunrs the outputs (0=1,1=0)
+
+Layer 3: Machione code - CPU
+- the CPU does a limited set of instructions - binary code
+- the CPU loads, decodes and executes instructions
+
+Layer 4: Assembly - machine code with readable names
+- Machine code made readable to humans
+
+Layer 5: high-level language - programming
+- Java, Python, C++, JavaScript and so on
+- All the different languages have different ways of translating to machine code
+
+Layer 6: Operative system (OS) - The manager
+- Windows, macOS, Linux
+- It's a big program controlling the computer.
+  - Administrate processes
+  - Controls memeory
+  - Handle files
+  - Communicates with the hardware via drivers
+  - Offers a user interface
+
+  Layer 7: Applications
+  - programs we interact with, such as IntelliJ, Chrome, Spotufy and so on
+  - they don't communicate directly wiht the hardware.
+  - The apps calls for the OS when a file is needed to be read og opening a network connection
 -->
 
 **I can do it!**
@@ -127,7 +204,15 @@ TODO: Lagene – transistorer → logic gates → maskinkode → assembly → h�
 ### Can talk about processes in operating systems.
 
 <!--
-TODO: Nøgleord – proces vs. program, PID, tråde, scheduling, process states (ready/running/waiting), context switch
+A program is a passiv file on a disk, where a process is a runnign program in RAM
+PID (Process ID) -> unique number the OS gives every proess, so it can keep a tab on them
+Threads -> a process can have multiple threads going on at the same time and share memory.
+Process states:
+  - READY - ready to run, waiting on the CPU
+  - RUNNING - using the CPU
+  - WAITING - waiting on disk or netword or user-input
+Scheduling -> the OS has a scheduler who decides which process that gets time from the CPU. It goes so fast, it looks like it runs simultanoulsy
+Context switch -> when the CPU switches from one process to another
 -->
 
 ---
@@ -137,11 +222,18 @@ TODO: Nøgleord – proces vs. program, PID, tråde, scheduling, process states 
 ### Can talk about different number representations: Binary, Hexadecimal, Decimal.
 
 <!--
-TODO:
-- Binær: base 2, bruges internt i computere
-- Hex: base 16, kompakt repræsentation af binær
-- Decimal: base 10, menneske-venlig
-- Omregningseksempler
+Binary code:
+  - only 0 and 1
+Hexadecimal:
+  - 0-9 and A-F
+Decimal:
+  - 0-9
+  - What we use in our every day life
+
+Example - the numberer 255
+  - Decimal - 255
+  - Binary - 1111 1111
+  - Hex - FF
 -->
 
 **I can do it!**
@@ -151,10 +243,18 @@ TODO:
 ### Can bring up real-world use cases for different number representations.
 
 <!--
-TODO: Eksempler
-- Binær: bit-flag, low-level protokoller
-- Hex: farver (#FF5733), memory addresses, MAC-adresser
-- Decimal: brugervendt UI, beløb
+Binary:
+  - Bit-flags (Linux rwx)
+  - low-level network protocol
+  - Image format
+Hex:
+  - colours in CSS
+  - MAC adresses
+  - memeory adresses
+Decimal:
+  - amounts
+  - price
+  - everything we have to read directly
 -->
 
 **I can do it!**
@@ -164,11 +264,19 @@ TODO: Eksempler
 ### Can explain different charsets like ASCII and Unicode and how they differ.
 
 <!--
-TODO:
-- ASCII: 7-bit, 128 tegn, engelsk alfabet
-- Unicode: standard for ALLE sprog, tildeler code points (U+XXXX)
-- UTF-8: encoding af Unicode, variabel længde (1-4 bytes), bagudkompatibel med ASCII
-- Hvorfor vigtigt: æøå kræver Unicode
+ASCII:
+  - Only have english letters, numbers and ordinary characters
+  - cant handle æ,ø and å or other languages characters
+  - 7 bits and 128 characters
+Unicode:
+  - internation standard that gives every character a uinique number (æ=U+00E6)
+  - Covers all languages, emojis, math symbols and so on
+UFT-8:
+  - the most used encoding by Unicode
+  - Variable length (1-4 bytes) and backward compatible with ASCII
+  - English characters still only take up 1 byte, while æ takes up 2 bytes
+  
+Sometimes the database or file doesnt use UFT-8, so æ,ø and å is shown as a ? or a weird character
 -->
 
 **I can do it!**
@@ -180,11 +288,19 @@ TODO:
 ### Knows about different types of databases and their use cases.
 
 <!--
-TODO:
-- Relationelle (SQL): MySQL, PostgreSQL – strukturerede data, ACID, relationer
-- NoSQL document: MongoDB – fleksibelt skema, JSON-lignende
-- Key-value: Redis – caching, sessions
-- Graph: Neo4j – relationer (fx sociale netværk)
+Relational (SQL)
+  - structured tabels with realtions, ACID-garanties.
+  - used for most businuess applications
+NoSQL document (fx MongoDB)
+  - Saves JSON-like documents.
+  - Is used when the data doesnt have a fixed structure
+Key-values (fx Redis)
+  - very quick
+  - saves simple pairs
+  - used for caching and sessions
+Graph (fx Neo4j)
+  - Optimized for relationships between things
+  - used for social networks and recommendation
 -->
 
 ---
@@ -192,7 +308,17 @@ TODO:
 ### Can setup a new MySQL database and connect to it.
 
 ```sql
--- TODO: CREATE DATABASE + forbindelse (via terminal, Workbench eller JDBC)
+-- MySQL
+  -- CREATE DATABASE oenskeskyen;
+  -- USE oenskeskyen;
+
+-- Connection thorugh terminal
+  -- mysql -u root -p
+
+--JDBC in Spring Boot
+  -- spring.datasource.url=jdbc:mysql://localhost:3306/oenskeskyen
+  -- spring.datasource.username=root
+  -- spring.datasource.password=password
 ```
 
 **I can do it!**
@@ -202,7 +328,11 @@ TODO:
 ### Can create DDL statements to create tables.
 
 ```sql
--- TODO: eksempel på CREATE TABLE
+-- CREATE TABLE users (
+    id INT PRIMARY KEY,
+    username VARCHAR(50),
+    email VARCHAR(100)
+);
 ```
 
 **I can do it!**
@@ -212,7 +342,10 @@ TODO:
 ### Can create DML (`SELECT`, `INSERT`) statements.
 
 ```sql
--- TODO: eksempel på SELECT og INSERT
+-- INSERT INTO users (id, username, email)
+VALUES (1, 'cassandra', 'cassandra@example.com');
+
+SELECT * FROM users;
 ```
 
 **I can do it!**
@@ -222,7 +355,9 @@ TODO:
 ### Can use `WHERE` clause to filter results.
 
 ```sql
--- TODO
+-- SELECT * FROM users WHERE username = 'cassandra';
+
+SELECT * FROM wishes WHERE price < 500;
 ```
 
 **I can do it!**
@@ -232,7 +367,12 @@ TODO:
 ### Can define Primary Keys.
 
 ```sql
--- TODO: CREATE TABLE med PRIMARY KEY
+-- A primary key ensures that every row is unique and cant be NULL
+
+-- CREATE TABLE users (
+    id INT PRIMARY KEY,
+    username VARCHAR(50)
+);
 ```
 
 **I can do it!**
@@ -243,10 +383,9 @@ TODO:
 
 <!--
 TODO:
-- FK peger på en PK i en anden tabel
-- Sikrer referentiel integritet
-- Kan ikke indsætte række med FK der ikke findes i moder-tabellen
-- ON DELETE CASCADE / SET NULL
+A FK is a column which points to a PK in another tabel
+Ensures referential integrity.
+You cannot insert an FK value that does not exist in the other table.
 -->
 
 ---
