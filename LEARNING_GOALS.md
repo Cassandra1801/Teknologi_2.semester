@@ -397,25 +397,41 @@ You cannot insert an FK value that does not exist in the other table.
 #### `LIMIT`, `ORDER BY`, `GROUP BY`
 
 ```sql
--- TODO
+-- LIMIT, ORDER BY, GROUP BY
+-- sqlSELECT * FROM wishes
+-- ORDER BY price DESC
+-- LIMIT 10;
+
+-- SELECT user_id, CO
 ```
 
 #### Aggregate functions: `COUNT`, `SUM`, `AVG`, `MIN`, `MAX`
 
 ```sql
--- TODO
+SELECT COUNT(*) FROM wishes;
+SELECT AVG(price) FROM wishes;
+SELECT MIN(price), MAX(price) FROM wishes;
 ```
 
 #### Pattern matching med `LIKE` og wildcards
 
 ```sql
--- TODO: eksempel med % og _
+-- All uasers whose names starts with 'C'
+SELECT * FROM users WHERE username LIKE 'C%';
+
+-- All wishes that contatins 'bog'
+SELECT * FROM wishes WHERE name LIKE '%bog%';
+
+--  Macthes exactly with one character
+SELECT * FROM users WHERE username LIKE 'C_ssandra';
 ```
 
 #### `JOIN` to combine data from multiple tables
 
 ```sql
--- TODO
+SELECT users.username, wishes.name
+FROM users
+JOIN wishes ON users.id = wishes.user_id;
 ```
 
 **I can do it!**
@@ -425,9 +441,20 @@ You cannot insert an FK value that does not exist in the other table.
 ### Can create inner, left and right joins after looking up the syntax.
 
 ```sql
--- TODO: INNER JOIN
--- TODO: LEFT JOIN
--- TODO: RIGHT JOIN
+-- INNER JOIN: only users with wishes
+SELECT users.username, wishes.name
+FROM users
+INNER JOIN wishes ON users.id = wishes.user_id;
+
+-- LEFT JOIN: all users, also those without wishes (NULL in wishes-columns)
+SELECT users.username, wishes.name
+FROM users
+LEFT JOIN wishes ON users.id = wishes.user_id;
+
+-- RIGHT JOIN: all wishes, alos those without a user
+SELECT users.username, wishes.name
+FROM users
+RIGHT JOIN wishes ON users.id = wishes.user_id;
 ```
 
 **I can do it!**
@@ -437,7 +464,19 @@ You cannot insert an FK value that does not exist in the other table.
 ### Can create DDL statements to create tables with constraints: `PRIMARY KEY`, `AUTO_INCREMENT`, `FOREIGN KEY`, `UNIQUE`, `NOT NULL`.
 
 ```sql
--- TODO: CREATE TABLE der bruger alle constraints
+-- CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL
+);
+
+CREATE TABLE wishes (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(10,2),
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
 ```
 
 **I can do it!**
@@ -447,7 +486,14 @@ You cannot insert an FK value that does not exist in the other table.
 ### Can create DML (`UPDATE`, `DELETE`) statements.
 
 ```sql
--- TODO
+-- UPDATE users
+SET email = 'new@example.com'
+WHERE id = 1;
+
+DELETE FROM wishes
+WHERE id = 5;
+
+-- Always remember WHERE or else all the rows will be opdated/deleted
 ```
 
 **I can do it!**
@@ -459,7 +505,15 @@ You cannot insert an FK value that does not exist in the other table.
 ### Can write YAML.
 
 ```yaml
-# TODO: lille YAML-eksempel (fx key-value, liste, nested)
+# name: Cassandra
+age: 24
+hobbies:
+  - pilates
+  - kaniner
+  - kodning
+adresse:
+  by: København
+  postnummer: 2100
 ```
 
 **I can do it!**
@@ -469,13 +523,23 @@ You cannot insert an FK value that does not exist in the other table.
 ### Understands what GitHub Actions are and can break down workflows into runners, jobs, and steps.
 
 <!--
-TODO:
-- GitHub Actions = CI/CD platform indbygget i GitHub
-- Workflow: YAML-fil i .github/workflows/
-- Runner: maskinen workflow kører på (ubuntu-latest, windows-latest…)
-- Job: gruppe af steps, kører på én runner
-- Step: enkelt kommando eller action
-- Triggers: on push, pull_request, schedule…
+GitHub Actions
+  - CI/CD-platofrm build within GitHub
+  - Automates tests, builds and deployments
+Workflow
+  - YAML-files placed in .github/workflows/ whioch defines what will happen
+Trigger
+  - what starts the workflow
+  - could be on: puhs, on: pull_request or on: schedule
+Job
+  - a group of steps that runs on one runner
+  - more jobs can run parallel
+Runner
+  - the machine that the workflow runs on
+  - could be ubuntu-latest or windows-latest
+Step
+  - A single command opr action
+  - Checkout code, run tests, deploy
 -->
 
 ---
@@ -483,11 +547,10 @@ TODO:
 ### Can give use cases for GitHub Actions.
 
 <!--
-TODO: Eksempler
-- Kør tests automatisk ved push
-- Byg og deploy til Azure ved merge til main
-- Lint / formater kode
-- Publish package / Docker image
+ Run automatic test with every push or pull request
+ Build and deploy to Azure by merge to main
+ Format code automatic
+ Send notification to email if theres a mistake
 -->
 
 **I can do it!**
@@ -499,11 +562,14 @@ TODO: Eksempler
 ### Understands different cloud service models: IaaS, PaaS, SaaS.
 
 <!--
-TODO:
-- IaaS (Infrastructure): virtuelle maskiner, netværk, lagerplads (fx Azure VM, AWS EC2) – du styrer OS og opefter
-- PaaS (Platform): kør din app uden at tænke på OS/server (fx Azure App Service, Heroku)
-- SaaS (Software): færdigt produkt brugeren bruger direkte (fx Gmail, Office 365)
-- Tegn evt. "pizza as a service"-analogien
+IaaS (infrastructure as a Service)
+  - virtuel machines, network, storage
+  - running your own OS, runtime and app
+PaaS (PLatform as a Service)
+  - uploading your app
+  - the provider controls OS and runtime
+SaaS (Software as a Service)
+  - A finished product you can use
 -->
 
 ---
@@ -511,11 +577,11 @@ TODO:
 ### Can deploy a web application to Azure App Service.
 
 <!--
-TODO: Beskriv dine trin fra Ønskeskyen-deployment:
-- Opret App Service i Azure Portal
-- Konfigurer runtime (Java 17 / Spring Boot)
-- Connect via GitHub Actions eller deployment center
-- Sæt environment variables
+create an App Service in Azure (Java 17)
+Configure runtime (Spring Boot)
+Set app settings (database url, username, password as environment variables)
+Conncet GitHub Actions via Deployment Center
+The app will be available on https://<app-navn>.azurewebsites.net
 -->
 
 **I can do it!**
@@ -525,13 +591,14 @@ TODO: Beskriv dine trin fra Ønskeskyen-deployment:
 ### Understands the flow from pushing, GitHub Actions running, building the project and deployment to Azure.
 
 <!--
-TODO:
-- git push → GitHub
-- Workflow triggeres
-- Runner tjekker koden ud, bygger (mvn package)
-- Artifact uploades
-- Deploy-step sender .jar til Azure App Service via publish profile / service principal
-- Azure genstarter app
+push code to main on GitHub
+GitHub Actions is triggered by the push
+Runner checks the code
+Runner builds the project with mvn package
+Output is a .jar-file
+Aritfact uploads
+Deploy-step sends the jar file to Azure via publish profile
+Azure app restarts with the new version
 -->
 
 ---
@@ -541,15 +608,26 @@ TODO:
 ### Adding a database to a Spring project.
 
 <!--
-TODO:
-- Tilføj dependency: spring-boot-starter-jdbc (eller data-jpa) + mysql-connector-j
-- Konfigurer application.properties (url, username, password)
-- Opret JdbcTemplate / Repository
--->
+Add dependencies in pom.xml
 
-```properties
-# TODO: application.properties eksempel
-```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-jdbc</artifactId>
+</dependency>
+<dependency>
+    <groupId>com.mysql</groupId>
+    <artifactId>mysql-connector-j</artifactId>
+</dependency>
+
+onmfigure application.properties:
+
+propertiesspring.datasource.url=jdbc:mysql://localhost:3306/oenskeskyen
+spring.datasource.username=root
+spring.datasource.password=password
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+Use JdbcTemplate in a repository-class to make queries.
+-->
 
 **I can do it!**
 
@@ -558,11 +636,10 @@ TODO:
 ### Setting up a database in Azure.
 
 <!--
-TODO:
-- Opret Azure Database for MySQL
-- Konfigurer firewall (tillad Azure services + egen IP)
-- Opret database og bruger
-- Note SSL-krav
+Create an Azure databse for MySql
+Configure firewall - allow Azure and own IP
+Create database and user via Azure CLI or MySQL Workbench
+Note: Azure typically requires a SSL-connection
 -->
 
 **I can do it!**
@@ -572,10 +649,12 @@ TODO:
 ### Can set up a database in Azure and connect it to an Azure App Service project with a guide.
 
 <!--
-TODO:
-- Connection string i App Service "Configuration" (eller application.properties)
-- SSL-certifikat ved behov
-- Test forbindelse
+In App Service -> Configuration -> Application setting: add
+  - Spring_DATASOURCE_URL
+  - SPRING_DATASOURCE_USERNAME
+  - SPRING_DATASOURCE_PASSWORD
+Maybe add ?useSSL=true&requireSSL=true to the connection-string
+Restart App Service and test connection
 -->
 
 **I can do it!**
@@ -587,11 +666,11 @@ TODO:
 ### Is able to go through scenarios that can cause concurrency problems in databases.
 
 <!--
-TODO: Klassiske problemer
-- Lost update: to brugere opdaterer samme række, den ene overskriver den anden
-- Dirty read: læser ikke-committet data
-- Non-repeatable read: samme SELECT giver forskellige resultater i samme transaktion
-- Phantom read: nye rækker dukker op mellem to SELECTs
+Classic problems when multiple users/processes access the database simultaneously:
+  - lost update -> two users updates the same row. One overwrites the other without knowing it
+  - Dirty read -> User A reads data that user B have changed but haven't committed. if B rollws back, A has read data that technically never existed
+  - Non-repeatable read -> SELECT gives different results within the same transaction because another transaction has changed data in the meantime.
+  - Phantom read -> new rows shows up (or disappers) between two SELECTs in the same transaction
 -->
 
 ---
@@ -600,37 +679,46 @@ TODO: Klassiske problemer
 
 <!--
 TODO:
-- A – Atomicity: alt eller intet
-- C – Consistency: databasen går fra én gyldig tilstand til en anden
-- I – Isolation: transaktioner påvirker ikke hinanden
-- D – Durability: committed data er permanent (overlever crash)
-- Hvordan løser det: isolation hindrer dirty/non-repeatable reads, atomicity hindrer halve updates osv.
+- A – Atomicity: All or nothing. A transaction is either fully committed or fully rolled back. No half-updates.
+- C – Consistency: the database goes from one valid state to another. All constraints (FK, NOT NULL, etc.) are respected.
+- I – Isolation: Transactions do not affect each other while they are running. This prevents dirty reads and non-repeatable reads.
+- D – Durability: Once a transaction is committed, it is permanent — even if the server crashes.
+
+How it solves concurrency:
+Isolation prevents two users from seeing half of each other's work. Atomicity ensures that money doesn't "disappear" between two accounts if a transfer fails halfway through.
 -->
 
 ---
 
 ### Is aware of the possibility to define transactions in SQL and JDBC.
 
-<!--
-TODO: Nøgleord
-- SQL: START TRANSACTION / BEGIN, COMMIT, ROLLBACK
-- JDBC: connection.setAutoCommit(false), connection.commit(), connection.rollback()
-- Spring: @Transactional
-- Atomic structures: updates enten sker fuldt ud eller slet ikke
--->
-
 ```sql
--- TODO: SQL transaktion-eksempel
+-- START TRANSACTION;
+UPDATE accounts SET balance = balance - 100 WHERE id = 1;
+UPDATE accounts SET balance = balance + 100 WHERE id = 2;
+COMMIT;
+-- If anything goes worng: ROLLBACK;
 ```
 
 ```java
-// TODO: JDBC transaktion-eksempel
+Connection conn = dataSource.getConnection();
+try {
+    conn.setAutoCommit(false);
+
+    // Træk 100 fra konto 1
+    PreparedStatement stmt1 = conn.prepareStatement(
+        "UPDATE accounts SET balance = balance - 100 WHERE id = 1");
+    stmt1.executeUpdate();
+
+    // Tilføj 100 til konto 2
+    PreparedStatement stmt2 = conn.prepareStatement(
+        "UPDATE accounts SET balance = balance + 100 WHERE id = 2");
+    stmt2.executeUpdate();
+
+    conn.commit();
+} catch (SQLException e) {
+    conn.rollback();
+}
 ```
 
 **I can do it!**
-
----
-
-## Kilder
-
-<!-- TODO: Evt. referencer til slides, docs, tutorials -->
